@@ -11,6 +11,20 @@ function saveHandler() {
 
 $('.saveBtn').on('click', saveHandler);
 
+function renderData() {
+    $('.time-block').each(function () {
+        let time = ($(this).attr('id'));
+        let textArea = time + "_text"
+        $(`#${textArea}`).val(textArea)
+    })
+
+}
+
+renderData()
+
+
+
+
 function checkHourPassed() {
     // get current number of hours, get this hour 
     let thisHour = moment().hours();
@@ -18,6 +32,8 @@ function checkHourPassed() {
     // loop over time blocks
     $('.time-block').each(function () {
       let scheduledHour = parseInt($(this).attr('id'));
+
+
 
       // check if we've moved past this time
       if (scheduledHour < thisHour) {
