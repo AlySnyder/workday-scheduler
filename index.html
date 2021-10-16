@@ -26,6 +26,8 @@
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
+      <h1 id="todaysDate"></h1>
+      <h1 id="displayDateTime"></h1>
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
@@ -109,5 +111,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script src="workday-scheduler.js"></script>
+    <script type="text/javascript">
+      var today = new Date();
+      var day = today.getDay();
+      var daysOfTheWeek = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var dateTime = date;
+       
+      document.getElementById("todaysDate").innerHTML = daysOfTheWeek[day];
+     
+      </script>
   </body>
 </html>

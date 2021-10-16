@@ -3,9 +3,7 @@ function saveHandler() {
   let value = $(this).siblings('.description').val();
     let time = $(this).parent().attr('id');
 
-    // save in localStorage
-    localStorage.setItem(time, value);
-
+    localStorage.setItem(time , value)
 }
 
 
@@ -15,14 +13,17 @@ function renderData() {
     $('.time-block').each(function () {
         let time = ($(this).attr('id'));
         let textArea = time + "_text"
-        $(`#${textArea}`).val(textArea)
+        var exists = localStorage.getItem(time)
+
+        if(exists) {
+            console.log(exists);
+            $(`#${textArea}`).val(exists)
+        } 
     })
 
 }
 
 renderData()
-
-
 
 
 function checkHourPassed() {
